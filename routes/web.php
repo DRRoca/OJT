@@ -2,9 +2,7 @@
 
 
 
-Route::get('/', function () {
-    return view('frontpage');
-});
+Route::get('/', 'NotebooksController@index');
 
 
 Route::resource('notebooks','NotebooksController');
