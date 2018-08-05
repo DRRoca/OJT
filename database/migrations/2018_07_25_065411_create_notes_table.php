@@ -20,7 +20,7 @@ class CreateNotesTable extends Migration
             $table->integer('notebook_id')->unsigned();
 
 
-            $table->dropForeign(['notebook_id']);
+            //$table->dropForeign(['notebook_id']);
             $table->foreign('notebook_id')->references('id')->on('notebooks')->onDelete('cascade');
             $table->string('title');
             $table->text('body');

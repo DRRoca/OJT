@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1 class="pull-xs-left">
-        Notes
+        {{$notebook->name}}
     </h1>
     <div class="pull-xs-right">
     <a class="btn btn-success" href="{{route('notes.createNote',$notebook->id)}}" role="button">

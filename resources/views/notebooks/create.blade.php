@@ -5,7 +5,7 @@
 <h1>
     Create Notebook
 </h1>
-    <form action="../notebooks" method="POST">
+    <form action="{{route('notebooks.store')}}" method="POST">
     {{csrf_field()}}
         <div class="form-group">
             <label for="name">
