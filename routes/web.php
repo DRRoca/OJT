@@ -2,18 +2,20 @@
 
 
 
-Route::get('/', 'NotebooksController@index');
 
-Route::get('/search', 'LiveSearchController@index');
 
-Route::get('/search/action', 'LiveSearchController@action')->name('LiveSearch.action');
+Route::group(['middleware'=>'auth'],function() {
+    Route::get('/', function () {
+        return view('frontpage');
+    });
+    Route::get('/search', 'LiveSearchController@index');
+    Route::get('/search/action', 'LiveSearchController@action')->name('LiveSearch.action');
+    Route::resource('LiveSearch','LiveSearchController');
+    Route::resource('notebooks','NotebooksController');
+    Route::resource('notes','NotesController');
+    Route::get('/{notebookId}/createNote','NotesController@createNote')->name('notes.createNote');
+});
 
-Route::resource('LiveSearch','LiveSearchController');
+Auth::routes();
 
-Route::resource('notebooks','NotebooksController');
-
-Route::resource('notes','NotesController');
-
-//Route::resource('live_search','LiveSearchController');
-
-Route::get('/{notebookId}/createNote','NotesController@createNote')->name('notes.createNote');
+Route::get('/home', 'HomeController@index')->name('home');

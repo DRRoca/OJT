@@ -6,7 +6,7 @@
         <div class="jumbotron">
             
             <p>
-                <a class="btn btn-lg btn-primary" href="notebooks.html" role="button">
+                <a class="btn btn-lg btn-primary" href="{{route('notebooks.index')}}" role="button">
                     Click me!
                 </a>
             </p>
