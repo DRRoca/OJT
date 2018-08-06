@@ -4,10 +4,18 @@
 
 <div class="container box">
     <div class="panel panel-default">
-        <div class="panel-heading">Search Customer Data</div>
+        <div>Search Notebooks or Notes
+            <div class="pull-xs-right">
+                <a class="btn btn-primary" href="{{route('notebooks.index')}}" role="button">
+                    Back 
+                </a>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
         <div class="panel-body">
             <div class="form-group">
-                <input type="text" name="search" id="search" class="form-control" placeholder="Search Customer Data" />
+                <input type="text" name="search" id="search" class="form-control" placeholder="Notebook or Notes" />
             </div>
             <div id="notebook-div" class="table-responsive">
                 <h3 align="center">Notebook Found : <span id="total_notebooks"></span></h3>
@@ -17,6 +25,7 @@
                             <th>Name</th>
                             <th>Date Created</th>
                             <th>Last Updated</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="notebooks">
@@ -30,9 +39,10 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Notebook</th>
                             <th>Date Created</th>
                             <th>Last Updated</th>
+                            <th>Notebook</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="notes">

@@ -8,7 +8,7 @@
             <label for="title">
                 Note Title
             </label>
-            <input class="form-control" name="title" placeholder="Note Title" type="text">
+            <input class="form-control" name="title" placeholder="Note Title" type="text" required>
             
         </div>
 
@@ -16,7 +16,7 @@
             <label for="body">
                 Notes
             </label>
-            <input class="form-control" name="body" placeholder="Notes" type="textarea" rows="3">
+            <input class="form-control" name="body" placeholder="Notes" type="textarea" rows="3" required>
         </div>
         {{-- <input type="hidden" name="notebook_id" value="{{$note->notebook_id}}"> --}}
 {{csrf_field()}}

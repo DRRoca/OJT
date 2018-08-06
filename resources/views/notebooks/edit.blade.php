@@ -12,7 +12,7 @@
             <label for="name">
                 Previous ({{$notebooks->name}})
             </label>
-            <input class="form-control" name="name" placeholder="New name" type="text">
+            <input class="form-control" name="name" placeholder="New name" type="text" required>
             </input>
         </div>
         

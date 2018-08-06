@@ -79,9 +79,9 @@ class LiveSearchController extends Controller
                     $output_note .= '
                         <tr>
                         <td>'.$row->title.'</td>
-                        <td>'.DB::table('notebooks')->where('id',$row->notebook_id)->first()->name.'</td>
                         <td>'.$row->created_at.'</td>
                         <td>'.$row->updated_at.'</td>
+                        <td>'.DB::table('notebooks')->where('id',$row->notebook_id)->first()->name.'</td>
                         <td><a class="btn btn-sm btn-primary" href="./notebooks/'.$row->notebook_id.'">OPEN</a></td>
                         </tr>
                         ';

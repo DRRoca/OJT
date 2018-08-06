@@ -8,7 +8,7 @@
             <label for="title">
                 Note Title
             </label>
-            <input class="form-control" name="title" placeholder="Title" type="text">
+            <input class="form-control" name="title" placeholder="Title" type="text" required>
             
         </div>
 
@@ -16,7 +16,7 @@
             <label for="body">
                 Notes
             </label>
-            <input class="form-control" name="body" placeholder="Body" type="textarea" rows="3">
+            <input class="form-control" name="body" placeholder="Body" type="textarea" rows="3" required>
         </div>
         <input type="hidden" name="notebook_id" value="{{$id}}">
         <input type="submit" class="pull-md-right btn btn-success" value="Done">

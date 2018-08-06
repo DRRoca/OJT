@@ -11,7 +11,7 @@
             <label for="name">
                 Notebook Name
             </label>
-            <input class="form-control" name="name" type="text">
+            <input class="form-control" name="name" type="text" required>
             </input>
         </div>
         <input class="btn btn-success" type="submit" value="Done">
