@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notebook;
+use Auth;
 
 use Illuminate\Http\Request;
 
