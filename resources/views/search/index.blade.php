@@ -1,17 +1,19 @@
 @extends('layouts.base')
 
+@section('nav')
+<li class="nav-item">
+    <a class="btn btn-primary" href="{{route('notebooks.index')}}" role="button">
+        Back 
+    </a>
+</li>
+@endsection
+
 @section('content')
 
 <div class="container box">
     <div class="panel panel-default">
-        <div>Search Notebooks or Notes
-            <div class="pull-xs-right">
-                <a class="btn btn-primary" href="{{route('notebooks.index')}}" role="button">
-                    Back 
-                </a>
-            </div>
-        </div>
-        <div class="clearfix">
+        <div>
+            Search Notebooks or notes
         </div>
         <div class="panel-body">
             <div class="form-group">

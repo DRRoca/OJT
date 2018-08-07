@@ -1,12 +1,10 @@
 @extends('layouts.base')
 
 @section('nav')
-<li>
+<li class="nav-item">
     <a class="btn btn-primary navbar-btn" href="{{route('LiveSearch.index')}}" role="button">
         Search
     </a>
-</li>
-<li>
     <a class="btn btn-success navbar-btn" href="{{route('notebooks.create')}}" role="button">
         New Notebook +
     </a>

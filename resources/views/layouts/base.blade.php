@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                        @yield('nav')
+                    @yield('nav')
                 </ul>
             </div>
         </nav>
