@@ -1,18 +1,21 @@
 @extends('layouts.base')
 
+@section('nav')
+<li class="nav-item">
+    <a class="btn btn-success" href="{{route('notes.createNote',$notebook->id)}}" role="button">
+        New Note +
+    </a>
+    <a class="btn btn-primary" href="{{route('notebooks.index')}}" role="button">
+        Back 
+    </a>
+</li>
+@endsection
+
 @section('content')
 <div class="container">
     <h1 class="pull-xs-left">
         {{$notebook->name}}
     </h1>
-    <div class="pull-xs-right">
-    <a class="btn btn-success" href="{{route('notes.createNote',$notebook->id)}}" role="button">
-            New Note +
-        </a>
-        <a class="btn btn-primary" href="../notebooks" role="button">
-            Back 
-        </a>
-    </div>
     <div class="clearfix">
     </div>
     <!-- notes -->
@@ -26,10 +29,9 @@
             </h4></a>
             <form class="pull-sm-right">
             Created at: {{$note->created_at->todatestring()}}<div></div>
-                Last Updated: {{$note->updated_at->todatestring()}}</br></form>
+                Last Updated: {{$note->updated_at->todatestring()}}<br><br></form>
             <p class="card-text">
-                {{($note->body)}}<br></br>
-                
+                {{($note->body)}}<br><br
             </p>
            
 

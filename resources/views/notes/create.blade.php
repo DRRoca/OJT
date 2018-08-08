@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<div class="container text-center">
+<div class="container">
     <form action="{{route('notes.store')}}" method="POST">
         {{csrf_field()}}
         <div class="form-group">

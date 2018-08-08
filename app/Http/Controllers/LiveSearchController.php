@@ -83,7 +83,7 @@ class LiveSearchController extends Controller
                         <td>'.DB::table('notebooks')->where('id',$row->notebook_id)->first()->name.'</td>
                         <td><a class="btn btn-sm btn-primary" href="./notebooks/'.$row->notebook_id.'">OPEN</a></td>
                         </tr>
-                        ';
+                    ';
                 }
             } else {
                 $output_note = '

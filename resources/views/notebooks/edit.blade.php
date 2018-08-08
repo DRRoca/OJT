@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('nav')
+<li class="nav-item">
+    <a class="btn btn-primary navbar-btn" href="{{route('notebooks.index')}}" role="button">
+        Back
+    </a>
+</li>
+@endsection
+
 @section('content')
 <div class="container">
 <h1>
