@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Notebook;
 use App\Note;
+use Auth;
 use Illuminate\Http\Request;
 use DB;
 
@@ -23,19 +24,19 @@ class LiveSearchController extends Controller
 
     public function action(Request $request)
     {
+        $user= Auth::user();
         if ($request->ajax()) {
             $output_notebook = '';
             $output_note = '';
             $query = $request->get('query');
             if ($query != '') {
-                $data = DB::table('notebooks')
-                    ->where('name', 'like', '%'.$query.'%')
+                $data = $user->notebooks()->where('name', 'like', '%'.$query.'%')
                     ->orWhere('created_at', 'like', '%'.$query.'%')
                     ->orWhere('updated_at', 'like', '%'.$query.'%')
                     ->get();
+                    
             } else {
-                $data = DB::table('notebooks')
-                    ->orderBy('id', 'desc')
+                $data = $user->notebooks()->orderBy('id', 'desc')
                     ->get();
             }
             $total_row_notebook = $data->count();
@@ -54,21 +55,20 @@ class LiveSearchController extends Controller
             } else {
                 $output_notebook = '
                     <tr>
-                    <td align="center" colspan="3">No Data Found</td>
+                    <td align="center" colspan="4">No Data Found</td>
                     </tr>
                     ';
             }
 
             if ($query != '') {
-                $data = DB::table('notes')
-                    ->where('title', 'like', '%'.$query.'%')
+                // $userNotebook= $user->notebooks();
+                $data = Note::where('title', 'like', '%'.$query.'%')
                     ->orWhere('body', 'like', '%'.$query.'%')
                     ->orWhere('created_at', 'like', '%'.$query.'%')
                     ->orWhere('updated_at', 'like', '%'.$query.'%')
                     ->get();
             } else {
-                $data = DB::table('notes')
-                    ->orderBy('id', 'desc')
+                $data = Note::orderBy('id', 'desc')
                     ->get();
             }
             $total_row_note = $data->count();
@@ -80,7 +80,7 @@ class LiveSearchController extends Controller
                         <td>'.$row->title.'</td>
                         <td>'.$row->created_at.'</td>
                         <td>'.$row->updated_at.'</td>
-                        <td>'.DB::table('notebooks')->where('id',$row->notebook_id)->first()->name.'</td>
+                        <td>'.Notebook::where('id',$row->notebook_id)->first()->name.'</td>
                         <td><a class="btn btn-sm btn-primary" href="./notebooks/'.$row->notebook_id.'">OPEN</a></td>
                         </tr>
                     ';
@@ -88,7 +88,7 @@ class LiveSearchController extends Controller
             } else {
                 $output_note = '
                     <tr>
-                    <td align="center" colspan="4">No Data Found</td>
+                    <td align="center" colspan="5">No Data Found</td>
                     </tr>
                     ';
             }
