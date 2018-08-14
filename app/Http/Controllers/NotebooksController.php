@@ -12,7 +12,7 @@ class NotebooksController extends Controller
     public function __construct()
     {
 
-        $this->middleware('notebook.owner')->except('index');
+        $this->middleware('notebook.owner')->except('index','create','store');
     }
 
     public function index(){
