@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function notebooks() {
         return $this->hasMany(Notebook::class);
     }
+
+    public function notes() {
+        return $this->hasManyThrough(Note::class, Notebook::class);
+    }
 }

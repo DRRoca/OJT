@@ -61,15 +61,16 @@ class LiveSearchController extends Controller
             }
 
             if ($query != '') {
-                // $userNotebook= $user->notebooks();
-                // $data= $user->notebooks()->get();
-                $data= Note::where('title', 'like', '%'.$query.'%')
-                    ->orWhere('body', 'like', '%'.$query.'%')
-                    ->orWhere('created_at', 'like', '%'.$query.'%')
-                    ->orWhere('updated_at', 'like', '%'.$query.'%')
+                $data= $user->notes()->where(function($q) use(&$query){
+                    $q->where('notes.title', 'like', '%'.$query.'%')
+                    ->orWhere('notes.body', 'like', '%'.$query.'%')
+                    ->orWhere('notes.created_at', 'like', '%'.$query.'%')
+                    ->orWhere('notes.updated_at', 'like', '%'.$query.'%');
+                    })
+                    ->orderBy('notes.id', 'desc')
                     ->get();
             } else {
-                $data = Note::orderBy('id', 'desc')
+                $data = $user->notes()->orderBy('id', 'desc')
                     ->get();
             }
             $total_row_note = $data->count();
