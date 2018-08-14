@@ -62,7 +62,8 @@ class LiveSearchController extends Controller
 
             if ($query != '') {
                 // $userNotebook= $user->notebooks();
-                $data = Note::where('title', 'like', '%'.$query.'%')
+                // $data= $user->notebooks()->get();
+                $data= Note::where('title', 'like', '%'.$query.'%')
                     ->orWhere('body', 'like', '%'.$query.'%')
                     ->orWhere('created_at', 'like', '%'.$query.'%')
                     ->orWhere('updated_at', 'like', '%'.$query.'%')
