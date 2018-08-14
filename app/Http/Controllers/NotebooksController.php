@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class NotebooksController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('notebook.owner')->except('index');
+    }
+
     public function index(){
         
         $user= Auth::user();

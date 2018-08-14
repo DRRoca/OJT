@@ -19,8 +19,8 @@ class MustBeOwnerOfNotebook
      */
     public function handle($request, Closure $next)
     {
-        $id = $request->route('id'); // For example, the current URL is: /posts/1/edit
-
+        $id = $request->route('notebook'); // For example, the current URL is: /posts/1/edit
+        // dd($id);
         // if($id == "create") return $next($request);
         $notebook = Notebook::where('user_id', Auth::user()->id)->where('id', $id)->first();
     
