@@ -2,14 +2,10 @@
 
 
 
-Route::get('/home', function () {
-    return view('home');
-});
+
 
 Route::group(['middleware'=>'auth'],function() {
-    Route::get('/', function () {
-        return view('frontpage');
-    });
+    Route::get('/', 'NotebooksController@index');
     Route::get('/search', 'LiveSearchController@index');
     Route::get('/search/action', 'LiveSearchController@action')->name('LiveSearch.action');
     Route::resource('LiveSearch','LiveSearchController');

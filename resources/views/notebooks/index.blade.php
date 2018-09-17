@@ -17,7 +17,7 @@
 
 
 @section('content')     
-
+    <div class="container">
         <br>
 
         <!-- ================ Notebooks==================== -->
@@ -63,5 +63,6 @@
                 </div>
             </div>
 @endforeach
-        </di>
+        </div>
+    </div>
 @endsection

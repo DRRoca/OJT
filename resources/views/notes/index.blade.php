@@ -22,7 +22,7 @@
     <div class="list-group notes-group">
         @foreach($notes as $note)
         
-        <div class="card card-block">
+        <div class="card card-block" style="padding: 20px; margin-bottom: 20px;">
             <h4 class="card-title">
                 {{ucfirst($note->title)}}
                 
