@@ -48,7 +48,11 @@
             <div class="container">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
+<<<<<<< HEAD
                         <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" >
+=======
+                        <a class="btn btn-success" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" >
+>>>>>>> 6e8ea9fc08c09372603d052a4cfd5ee23fb20937
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                     
